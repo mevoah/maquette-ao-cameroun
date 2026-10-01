@@ -249,7 +249,7 @@ main > .hs:first-child{margin-top:calc(-1 * var(--hdr-h))}
      puis un voile général volontairement léger pour garder la photo lumineuse */
   background:linear-gradient(180deg,rgba(0,18,32,.60) 0,rgba(0,18,32,0) 175px),
              radial-gradient(112% 72% at 50% 46%,rgba(0,20,36,.62) 0%,rgba(0,20,36,.34) 52%,rgba(0,20,36,0) 80%),
-             linear-gradient(0deg,rgba(0,20,36,.38) 0,rgba(0,20,36,0) 42%),
+             linear-gradient(0deg,rgba(0,20,36,.38) 0,rgba(0,20,36,0) 30%),
              linear-gradient(0deg,rgba(0,28,48,.26),rgba(0,28,48,.26))}
 .hs-body{position:relative;z-index:2;display:flex;align-items:center;min-height:inherit;
   padding-block:calc(var(--s9) + var(--hdr-h)) calc(var(--s9) + var(--s7))}
