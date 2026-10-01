@@ -241,10 +241,10 @@ main > .hs:first-child{margin-top:calc(-1 * var(--hdr-h))}
 .hs-slide::after{content:"";position:absolute;inset:0;z-index:1;
   /* bande haute pour l'en-tête, halo central derrière le texte, bande basse pour les puces,
      voile général quasi nul : la photographie reste lumineuse, seul le halo central porte le texte */
-  background:linear-gradient(180deg,rgba(0,18,32,.50) 0,rgba(0,18,32,0) 175px),
-             radial-gradient(94% 62% at 50% 45%,rgba(0,20,36,.88) 0%,rgba(0,20,36,.68) 48%,rgba(0,20,36,0) 88%),
-             linear-gradient(0deg,rgba(0,20,36,.26) 0,rgba(0,20,36,0) 26%),
-             linear-gradient(0deg,rgba(0,28,48,.04),rgba(0,28,48,.04))}
+  background:linear-gradient(180deg,rgba(0,18,32,.47) 0,rgba(0,18,32,0) 175px),
+             radial-gradient(94% 62% at 50% 45%,rgba(0,20,36,.80) 0%,rgba(0,20,36,.59) 48%,rgba(0,20,36,0) 88%),
+             linear-gradient(0deg,rgba(0,20,36,.23) 0,rgba(0,20,36,0) 25%),
+             linear-gradient(0deg,rgba(0,28,48,.03),rgba(0,28,48,.03))}
 .hs-body{position:relative;z-index:2;display:flex;align-items:center;min-height:inherit;
   padding-block:calc(var(--s9) + var(--hdr-h)) calc(var(--s9) + var(--s7))}
 .hs-body>.wrap{width:100%}
@@ -269,10 +269,10 @@ main > .hs:first-child{margin-top:calc(-1 * var(--hdr-h))}
 @media (max-width:820px){
   :root{--hdr-h:110px}
   .hs-stage{min-height:calc(100svh - var(--topbar-h))}
-  .hs-slide::after{background:linear-gradient(180deg,rgba(0,18,32,.48) 0,rgba(0,18,32,0) 145px),
-             radial-gradient(170% 78% at 50% 44%,rgba(0,20,36,.90) 0%,rgba(0,20,36,.70) 58%,rgba(0,20,36,0) 96%),
-             linear-gradient(0deg,rgba(0,20,36,.26) 0,rgba(0,20,36,0) 34%),
-             linear-gradient(0deg,rgba(0,28,48,.04),rgba(0,28,48,.04))}
+  .hs-slide::after{background:linear-gradient(180deg,rgba(0,18,32,.46) 0,rgba(0,18,32,0) 145px),
+             radial-gradient(170% 78% at 50% 44%,rgba(0,20,36,.82) 0%,rgba(0,20,36,.60) 58%,rgba(0,20,36,0) 96%),
+             linear-gradient(0deg,rgba(0,20,36,.22) 0,rgba(0,20,36,0) 32%),
+             linear-gradient(0deg,rgba(0,28,48,.02),rgba(0,28,48,.02))}
   .hs-arrows{display:none}
 }
 
