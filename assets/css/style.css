@@ -209,7 +209,7 @@ a.card:hover{border-color:var(--blue);box-shadow:var(--shadow-2);transform:trans
   display:grid;grid-template-columns:1fr 1fr 250px;gap:var(--s6);opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity var(--t-med) var(--ease),transform var(--t-med) var(--ease),visibility var(--t-med)}
 .mega.open{opacity:1;visibility:visible;transform:none}
-.mega h3{font:600 10.5px/1 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.mega .mm-t{font:600 10.5px/1 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
 .mega li{margin-bottom:10px}
 .mega li a{font-size:15px;color:var(--blue-600)}
 .mega li a:hover{color:var(--ink)}
@@ -346,7 +346,7 @@ select:focus,input:focus,textarea:focus{border-color:var(--blue);outline:none;bo
 /* ---------- pied de page ---------- */
 /* pied de page : bleu marine AO Alliance #003258 */
 .ftr{background:var(--deep);color:var(--on-dark-2);font-size:14.5px}
-.ftr h4{color:#fff;font-family:var(--font-sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.ftr .ft-t{color:#fff;font:600 11px/1.2 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;margin:0 0 16px}
 .ftr a{color:var(--on-dark-2);display:block;padding:5px 0}
 .ftr a:hover{color:#fff}
 .ftr .rl{height:1px;background:rgba(255,255,255,.13)}
