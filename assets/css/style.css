@@ -83,6 +83,15 @@ h1,h2,h3,h4{margin:0;font-family:var(--font-sans);font-weight:700;letter-spacing
 .d5{font-size:17px;font-weight:600;line-height:1.35}
 .lead{font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:var(--ink-2)}
 p{margin:0 0 1em}
+/* titre de section : le texte bleu porte le H2 et sa dimension (34 px au maximum) ;
+   la ligne qui suit devient un sous-titre. */
+.sh-t{margin:0;font:700 clamp(26px,3vw,34px)/1.16 var(--font-sans);letter-spacing:-.018em;color:var(--blue-600)}
+.sh-s{margin:0;font:600 clamp(18px,1.7vw,21px)/1.34 var(--font-sans);letter-spacing:-.01em;color:var(--ink-2)}
+.tint .sh-s{color:var(--ink-2)}
+.bloc .sh-t{color:#fff}
+.bloc .sh-s{color:#fff;font-weight:700}
+.dark .sh-t{color:var(--blue-300)}
+.dark .sh-s{color:#fff}
 .eyebrow{font:700 12px/1 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--blue-600)}
 .eyebrow.mut{color:var(--muted)}
 .sm{font-size:15px;line-height:1.55;color:var(--muted)}
