@@ -74,6 +74,8 @@ hr.rule{height:1px;background:var(--rule);border:0;margin:0}
 /* ---------- typographie ---------- */
 /* Échelle : 32 px au sommet, le texte de contenu entre 16 et 24 px */
 h1,h2,h3,h4{margin:0;font-family:var(--font-sans);font-weight:700;letter-spacing:-.015em;line-height:1.2}
+/* les classes d1 à d5 donnent l'échelle visuelle, quelle que soit la balise portée */
+.d1,.d2,.d3,.d4,.d5{margin:0;font-family:var(--font-sans)}
 .d1{font-size:clamp(26px,3.2vw,32px);font-weight:700;line-height:1.18;letter-spacing:-.02em}
 .d2{font-size:clamp(24px,2.6vw,28px);font-weight:700;line-height:1.22;letter-spacing:-.015em}
 .d3{font-size:clamp(21px,2vw,24px);font-weight:600;line-height:1.28}
