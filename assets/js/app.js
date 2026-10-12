@@ -34,20 +34,8 @@
     onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- méga-menu ---------- */
-  var openMega = null;
-  function closeMega() { if (openMega) { openMega.panel.classList.remove('open'); openMega.btn.setAttribute('aria-expanded', 'false'); openMega = null; } }
-  $$('[data-mega]').forEach(function (li) {
-    var btn = $('.navlink', li), panel = $('.mega', li);
-    if (!btn || !panel) return;
-    var open = function () { if (openMega && openMega.panel !== panel) closeMega(); panel.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); openMega = { btn: btn, panel: panel }; };
-    btn.addEventListener('click', function (e) { e.preventDefault(); (panel.classList.contains('open') ? closeMega : open)(); });
-    li.addEventListener('mouseenter', open);
-    li.addEventListener('mouseleave', closeMega);
-    li.addEventListener('focusout', function (e) { if (!li.contains(e.relatedTarget)) closeMega(); });
-  });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeMega(); closeDrawer(); } });
-  document.addEventListener('click', function (e) { if (openMega && !e.target.closest('[data-mega]')) closeMega(); });
+  /* ---------- échappement ---------- */
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeDrawer(); } });
 
   /* ---------- tiroir mobile ---------- */
   var drawer = $('#drawer');
