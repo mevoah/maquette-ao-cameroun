@@ -34,8 +34,20 @@
     onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- échappement ---------- */
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeDrawer(); } });
+  /* ---------- méga-menu ---------- */
+  var openMega = null;
+  function closeMega() { if (openMega) { openMega.panel.classList.remove('open'); openMega.btn.setAttribute('aria-expanded', 'false'); openMega = null; } }
+  $$('[data-mega]').forEach(function (li) {
+    var btn = $('.navlink', li), panel = $('.mega', li);
+    if (!btn || !panel) return;
+    var open = function () { if (openMega && openMega.panel !== panel) closeMega(); panel.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); openMega = { btn: btn, panel: panel }; };
+    btn.addEventListener('click', function (e) { e.preventDefault(); (panel.classList.contains('open') ? closeMega : open)(); });
+    li.addEventListener('mouseenter', open);
+    li.addEventListener('mouseleave', closeMega);
+    li.addEventListener('focusout', function (e) { if (!li.contains(e.relatedTarget)) closeMega(); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeMega(); closeDrawer(); } });
+  document.addEventListener('click', function (e) { if (openMega && !e.target.closest('[data-mega]')) closeMega(); });
 
   /* ---------- tiroir mobile ---------- */
   var drawer = $('#drawer');
@@ -108,7 +120,7 @@
     var units = [['j', 86400000], ['h', 3600000], ['min', 60000]];
     function tick() {
       var d = target - Date.now();
-      if (d <= 0) { el.innerHTML = '<div class="cd-u"><b>—</b><span>en cours</span></div>'; return; }
+      if (d <= 0) { el.innerHTML = '<div class="cd-u"><b>—</b><span>' + (d < -3 * 86400000 ? 'terminé' : 'en cours') + '</span></div>'; return; }
       var html = '';
       units.forEach(function (u) { var v = Math.floor(d / u[1]); d -= v * u[1]; html += '<div class="cd-u"><b>' + v + '</b><span>' + u[0] + '</span></div>'; });
       el.innerHTML = html;
@@ -166,10 +178,10 @@
   var vf = $('#verif-form');
   if (vf) {
     var DEMO = {
-      'AOC-2026-4K7P-9QX2': { nom: 'Dr [Prénom NOM]', cours: 'Ostéosynthèse des fractures proximales du fémur',
-        dates: '[JJ–JJ mois 2026]', lieu: 'Yaoundé', statut: 'valide' },
-      'AOC-2025-2M4T-8RB1': { nom: 'Dr [Prénom NOM]', cours: 'Principes du traitement non opératoire',
-        dates: '[JJ–JJ mois 2025]', lieu: 'Garoua', statut: 'revoquee' }
+      'AOC-2025-4K7P-9QX2': { nom: 'Dr [Prénom NOM]', cours: 'Séminaire—Standards Péri Opératoires au Bloc Opératoire de Traumatologie',
+        dates: '08 novembre 2025', lieu: 'Yaoundé', statut: 'valide' },
+      'AOC-2025-2M4T-8RB1': { nom: 'Dr [Prénom NOM]', cours: 'Principes du traitement non-opératoire des fractures de membres les plus courantes',
+        dates: '24–26 avril 2025', lieu: 'Edea', statut: 'revoquee' }
     };
     vf.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -185,7 +197,7 @@
       } else if (r) {
         out.classList.add('ko');
         out.innerHTML = '<p class="eyebrow" style="color:var(--red)">Attestation révoquée</p>' +
-          '<p class="sm" style="margin:10px 0 0">Ce code correspond à une attestation retirée par l’association. Contactez le secrétariat.</p>';
+          '<p class="sm" style="margin:10px 0 0">Ce code correspond à une attestation retirée par l’AO Cameroun. Contactez contact@ao-cameroun.org.</p>';
       } else {
         out.classList.add('ko');
         out.innerHTML = '<p class="eyebrow" style="color:var(--red)">Attestation non reconnue</p>' +
